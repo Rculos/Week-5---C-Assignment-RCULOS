@@ -1,0 +1,53 @@
+﻿@page
+@model ContactFormRazor.Pages.ContactFormModel
+@{
+    ViewData["Title"] = "Contact Form";
+}
+
+<h2>Contact Form</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.FirstName">First Name</label>
+        <input asp-for="Input.FirstName" class="form-control" />
+        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.LastName">Last Name</label>
+        <input asp-for="Input.LastName" class="form-control" />
+        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.AddressLine1">Address (Optional)</label>
+        <input asp-for="Input.AddressLine1" class="form-control" />
+        <span asp-validation-for="Input.AddressLine1" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.Phone">Phone Number</label>
+        <input asp-for="Input.Phone" class="form-control" />
+        <span asp-validation-for="Input.Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.Inquiry">Inquiry Information</label>
+        <textarea asp-for="Input.Inquiry" class="form-control"></textarea>
+        <span asp-validation-for="Input.Inquiry" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-success mt-3">
+        @Model.Message
+    </div>
+}
+
+@section Scripts {
+    <!-- Optional: Commented out for server-side validation only -->
+    <!-- <partial name="_ValidationScriptsPartial" /> -->
+}
