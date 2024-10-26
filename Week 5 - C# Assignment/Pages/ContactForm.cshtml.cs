@@ -14,18 +14,18 @@ namespace ContactFormRazor.Pages
 
         public void OnGet()
         {
-            // Page load logic if any
+            // Page load 
         }
 
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return Page(); // Return the page to show validation messages.
+                return Page(); // Return the page to show any validation messages on the fields
             }
 
             Message = "Form submitted successfully!";
-            return RedirectToPage(); // Redirect to clear form after successful submission.
+            return RedirectToPage(); // Clears form after submission.
         }
 
         public class InputModel
@@ -41,7 +41,7 @@ namespace ContactFormRazor.Pages
             public string LastName { get; set; }
 
             [StringLength(25, MinimumLength = 8, ErrorMessage = "Address, if provided, must be between 8 and 25 characters.")]
-            public string? AddressLine1 { get; set; } // Optional field
+            public string? AddressLine1 { get; set; } // This is an optional field
 
             [RegularExpression(@"^\d{10}$|^\d{3}-\d{3}-\d{4}$", ErrorMessage = "Phone number must be exactly 10 digits or in 123-456-7890 format.")]
             [Required(ErrorMessage = "Phone number is required.")]
